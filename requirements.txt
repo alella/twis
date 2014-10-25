@@ -1,0 +1,6 @@
+oauthlib
+pygame
+requests
+requests-oauthlib
+simplejson
+python-twitter
