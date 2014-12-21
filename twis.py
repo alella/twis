@@ -108,10 +108,13 @@ def stream_tweets(search_text, max_count):
                 sys.exit()
             
 if __name__ == "__main__":
-    creds = verify_credentials()
     if search_text == "stop":
-        pids = os.popen("ps -ef|grep twis.py|grep python|grep -v grep| awk '{print $2}'").readlines()
+        notify(text="Killing all instances of twis", fg=color_red, bg=color_black, timeout=2)
+        pids = os.popen("ps -ef|grep twis|grep python|grep -v grep| awk '{print $2}'").readlines()
         for pid in pids:
             os.popen("kill -9 "+pid.rstrip())
+        sys.exit(0)
+
+    creds = verify_credentials()
     notify(text="Started searching for <b>{}</b>".format(search_text), timeout=2)
     stream_tweets(search_text, 100)
