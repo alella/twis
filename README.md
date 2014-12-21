@@ -31,4 +31,6 @@ Run the service using (replace `<search string>` with any search string like coo
 example `python twis.py avengers` would result in something like this
 ![](http://s3.postimg.org/q1oyc7xzn/Untitled.png)
 
+**Note:** Using "stop" as the search string would kill all instances of twis
+
 [awesome WM 3.5]:http://awesome.naquadah.org/
