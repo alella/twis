@@ -109,5 +109,9 @@ def stream_tweets(search_text, max_count):
             
 if __name__ == "__main__":
     creds = verify_credentials()
+    if search_text == "stop":
+        pids = os.popen("ps -ef|grep twis.py|grep python|grep -v grep| awk '{print $2}'").readlines()
+        for pid in pids:
+            os.popen("kill -9 "+pid.rstrip())
     notify(text="Started searching for <b>{}</b>".format(search_text), timeout=2)
     stream_tweets(search_text, 100)
